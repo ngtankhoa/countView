@@ -12,11 +12,11 @@ module.exports = {
         return res.view('pages/count', { num: numrecord });
     },
 
-    // count: async function (req, res) {
-    //     let countS = await Count.create();
-    //     numrecord = await Count.count({ countViewTime: 0 });
-    //     return res.view('pages/count', { num: numrecord });
-    // }
+    count: async function (req, res) {
+        let countS = await Count.create();
+        numrecord = await Count.count({ countViewTime: 0 });
+        return res.ok({numrecord});
+    }
 
 };
 

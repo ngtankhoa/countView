@@ -11,15 +11,10 @@
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                // document.getElementById("place").innerHTML = this.responseText.charAt + this.responseText.concat+this.responseText.indexOf+this.responseText.lastIndexOf+this.responseText.
-                var str = this.responseText;
-                str = str.split('"id": ');
-                var tg = str[1];
-                tg = tg.split(",");
-                document.getElementById("place").innerHTML = tg[0];
+                document.getElementById("place").innerHTML = JSON.parse(this.responseText).numrecord;
             }
         };
-        xhttp.open("GET", "/count/create", true);
+        xhttp.open("GET", "/countNow", true);
         xhttp.send();
     }
 
