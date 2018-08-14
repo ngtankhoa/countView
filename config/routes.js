@@ -29,6 +29,7 @@ module.exports.routes = {
   },
   'get /countNow': 'CountController.count',
   'get /pages/count': 'CountController.count_onload',
+  // 'get /countnownow': 'CountController.countnownow',
 
   /***************************************************************************
   *                                                                          *
