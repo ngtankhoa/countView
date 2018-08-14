@@ -2,11 +2,12 @@
 <p>You've click this button</p>
 <p id="place"> <%- num %> </p>
 <p>times</p>
-<a class="btn btn-light" onclick="createRecord()">countNow</a>
-<!-- <a class="btn btn-danger" onclick="destroyRecord()">reset</a> -->
+<a class="btn btn-light" onclick="callRESTapi('/countNow')">Count now</a>
+<a class="btn btn-danger" onclick="callRESTapi('/reset')">Reset</a>
 
 <script>
-    function createRecord() {
+    
+    function callRESTapi(URLpart) {
         var xhttp;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -14,12 +15,8 @@
                 document.getElementById("place").innerHTML = JSON.parse(this.responseText).numrecord;
             }
         };
-        xhttp.open("GET", "/countNow", true);
+        xhttp.open("GET", URLpart, true);
         xhttp.send();
     }
 
-    // function destroyRecord(){
-    //     var xhttp = new XMLHttpRequest();
-    //     xhttp.open("GET", "/count/destroy");
-    // }
 </script>
