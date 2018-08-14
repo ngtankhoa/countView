@@ -1,5 +1,24 @@
-<script>var num=0;
+<script>
+    var num = await Count.count({ countViewTime: 0 });
+    document.getElementById("place").innerHTML="haha";
 </script>
 <p>You're looking at <code>view/pages/count.ejs</code></p>
-<p>You've click this button <%- num %> time.</p>
-<a class="btn btn-light" href="/countNow">countNow</a>
+<p id="place">You've click this button time.</p>
+<a class="btn btn-light" onclick="callRESTapi()">countNow</a>
+
+<script>
+    
+    function callRESTapi(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState==4 && this.status==200){
+                alert(this.responseText);
+            }
+        };
+        xhttp.open("GET", "/count/create?", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send();
+        num = await Count.count({ countViewTime: 0 });
+        document.getElementById("place").innerHTML="haha";
+    }
+</script>

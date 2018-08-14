@@ -28,7 +28,10 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
   'get /countNow': 'CountController.count',
-  'get /pages/count': 'CountController.count_onload',
+  // 'get /pages/count': 'CountController.count_onload',
+  'get /pages/count': {
+    view: 'pages/count'
+  },
 
   /***************************************************************************
   *                                                                          *
