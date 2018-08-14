@@ -1,15 +1,12 @@
 <p>You're looking at <code>view/pages/count.ejs</code></p>
 <p>You've click this button</p>
-<%num%>
-<p id="place"></p>
+<p id="place"> <%- num %> </p>
 <p>times</p>
-<a class="btn btn-light" onclick="callRESTapi()">countNow</a>
+<a class="btn btn-light" onclick="createRecord()">countNow</a>
+<!-- <a class="btn btn-danger" onclick="destroyRecord()">reset</a> -->
 
 <script>
-
-
-
-    function callRESTapi() {
+    function createRecord() {
         var xhttp;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -18,7 +15,7 @@
                 var str = this.responseText;
                 str = str.split('"id": ');
                 var tg = str[1];
-                var tg = tg.split(",");
+                tg = tg.split(",");
                 document.getElementById("place").innerHTML = tg[0];
             }
         };
@@ -26,4 +23,8 @@
         xhttp.send();
     }
 
+    // function destroyRecord(){
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.open("GET", "/count/destroy");
+    // }
 </script>
