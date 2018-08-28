@@ -1,4 +1,4 @@
-# simple Count View server with postgreSql
+# simple Count View server with postgresql
 
 a [Sails v1](https://sailsjs.com) application
 
