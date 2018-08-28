@@ -1,4 +1,4 @@
-# demo-empty-sails-app
+# simple Count View server with postgresql
 
 a [Sails v1](https://sailsjs.com) application
 
