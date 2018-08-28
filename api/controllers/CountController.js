@@ -6,18 +6,22 @@
  */
 
 module.exports = {
-
-    count_onload: async function (req,res) {
+    count_onload: async function (req, res) {
         var numrecord = await Count.count({ countViewTime: 0 });
         return res.view('pages/count', { num: numrecord });
     },
 
     count: async function (req, res) {
-        let countS = await Count.create();
-        this.count_onload;
+        await Count.create();
         numrecord = await Count.count({ countViewTime: 0 });
-        return res.view('pages/count', { num: numrecord });
-    }
+        return res.ok({ numrecord });
+    },
+
+    reset: async function (req, res) {
+        await Count.destroy({countViewTime: 0});
+        var numrecord = await Count.count({ countViewTime: 0 });
+        return res.ok({ numrecord });
+    },
 
 };
 
